@@ -1,0 +1,71 @@
+Information recolté 
+
+Pour la carte wifi : 
+
+udevadm info -a -p /sys/class/net/wlp2s0 | grep -i DRIVER
+
+  DRIVER==""
+    DRIVERS=="iwlwifi"
+    ATTRS{driver_override}=="(null)"
+    DRIVERS=="pcieport"
+    ATTRS{driver_override}=="(null)"
+    DRIVERS==""
+
+
+Pour le touchPad
+cat /proc/bus/input/devices
+
+
+
+I: Bus=0018 Vendor=044e Product=120b Version=0100
+N: Name="DLL07B0:01 044E:120B"
+P: Phys=i2c-DLL07B0:01
+S: Sysfs=/devices/pci0000:00/0000:00:15.1/i2c_designware.1/i2c-2/i2c-DLL07B0:01/0018:044E:120B.0001/input/input8
+U: Uniq=
+H: Handlers=mouse1 event7 
+B: PROP=1
+B: EV=b
+B: KEY=e520 70000 0 0 0 0
+B: ABS=660800001000003
+
+
+
+udevadm info -a -p /devices/pci0000:00/0000:00:15.1/i2c_designware.1/i2c-2/i2c-DLL07B0:01/0018:044E:120B.0001/input/input8 | grep -i DRIVER
+    DRIVER==""
+    DRIVERS=="hid-alps"
+    DRIVERS=="i2c_hid"
+    DRIVERS==""
+    DRIVERS=="i2c_designware"
+    ATTRS{driver_override}=="(null)"
+    DRIVERS=="intel-lpss"
+    ATTRS{driver_override}=="(null)"
+    DRIVERS==""
+
+
+    
+    Symbol: IWLWIFI [=m]                                                                                                         │  
+  │ Type  : tristate                                                                                                             │  
+  │ Defined at drivers/net/wireless/intel/iwlwifi/Kconfig:2                                                                      │  
+  │   Prompt: Intel Wireless WiFi Next Gen AGN - Wireless-N/Advanced-N/Ultimate-N (iwlwifi)                                      │  
+  │   Depends on: NETDEVICES [=y] && WLAN [=y] && WLAN_VENDOR_INTEL [=y] && PCI [=y] && HAS_IOMEM [=y] && CFG80211 [=m]          │  
+  │   Location:                                                                                                                  │  
+  │     -> Device Drivers                                                                                                        │  
+  │       -> Network device support (NETDEVICES [=y])                                                                            │  
+  │         -> Wireless LAN (WLAN [=y])                                                                                          │  
+  │ (1)       -> Intel devices (WLAN_VENDOR_INTEL [=y])                                                                          │  
+  │ Selects: FW_LOADER [=y]
+  
+    
+    
+    
+    
+      │ Symbol: HID_ALPS [=n]                                                                                                        │  
+  │ Type  : tristate                                                                                                             │  
+  │ Defined at drivers/hid/Kconfig:1205                                                                                          │  
+  │   Prompt: Alps HID device support                                                                                            │  
+  │   Depends on: INPUT [=y] && HID [=y]                                                                                         │  
+  │   Location:                                                                                                                  │  
+  │     -> Device Drivers                                                                                                        │  
+  │       -> HID support                                                                                                         │  
+  │         -> HID bus support (HID [=y])                                                                                        │  
+  │ (5)       -> Special HID drivers

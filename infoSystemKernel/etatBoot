@@ -1,0 +1,12 @@
+config-5.10.0-0.bpo.5-amd64
+config-5.10.0-0.bpo.8-amd64
+efi
+grub
+initrd.img-5.10.0-0.bpo.5-amd64
+initrd.img-5.10.0-0.bpo.8-amd64
+memtest86+.bin
+memtest86+_multiboot.bin
+System.map-5.10.0-0.bpo.5-amd64
+System.map-5.10.0-0.bpo.8-amd64
+vmlinuz-5.10.0-0.bpo.5-amd64
+vmlinuz-5.10.0-0.bpo.8-amd64
